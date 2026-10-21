@@ -1,0 +1,93 @@
+[
+  {
+    "id": "1",
+    "title": "Symphony in Gold",
+    "description": "<b>Aged bourbon, honey, ginger.</b> Experience the symphony of flavors as aged bourbon blends seamlessly with the sweetness of honey & the subtle spice of ginger.",
+    "image": "symphony-in-gold.png",
+    "alt": "Symphony in Gold cocktail"
+  },
+  {
+    "id": "2",
+    "title": "Enchanted Elixir",
+    "description": "<b>Berries, vodka, elderflower.</b> Let the enchantment unfold as you savor the magical blend of muddled berries, premium vodka, and a hint of elderflower liqueur.",
+    "image": "enchanted-elixir.png",
+    "alt": "Enchanted Elixir cocktail"
+  },
+  {
+    "id": "3",
+    "title": "Raspberry Caipirinha",
+    "description": "<b>Cachaça, fresh raspberries, lime, sugar.</b> A vibrant spin on the Brazilian classic — muddled raspberries and lime with crystalline sugar, shaken with premium cachaça for a sweet-tart burst of summer in every sip.",
+    "image": "raspberry-caipirinha.png",
+    "alt": "Raspberry Caipirinha cocktail"
+  },
+  {
+    "id": "4",
+    "title": "Blackberry Bramble",
+    "description": "<b>Gin, blackberry liqueur, lemon, sugar.</b> A sophisticated garden gem — smooth gin mingled with dark blackberry liqueur, fresh lemon juice, and a touch of sugar, crowned with plump fresh berries for a perfectly balanced sweet-tangy finish.",
+    "image": "blackberry-bramble.png",
+    "alt": "Blackberry Bramble cocktail"
+  },
+  {
+    "id": "5",
+    "title": "Ginger Grapefruit Fizz",
+    "description": "<b>Gin, grapefruit juice, ginger syrup, soda.</b> A zesty and invigorating blend — smooth gin meets sharp pink grapefruit and warm ginger syrup, topped with sparkling soda for a crisp, refreshing kick with a spicy citrus glow.",
+    "image": "ginger-grapefruit.png",
+    "alt": "Ginger Grapefruit Fizz cocktail"
+  },
+  {
+    "id": "6",
+    "title": "Blue Margarita",
+    "description": "<b>Tequila, blue curaçao, lime juice, triple sec.</b> A mesmerizing azure twist on the classic — premium tequila balanced with vibrant blue curaçao, fresh lime, and orange liqueur, served over ice with a salted rim for a crisp, citrusy escape.",
+    "image": "blue-margarita.png",
+    "alt": "Blue Margarita cocktail"
+  },
+  {
+    "id": "7",
+    "title": "Mojito",
+    "description": "<b>White rum, fresh mint, lime, sugar, soda.</b> A timeless Cuban classic — muddled mint and lime with cane sugar, shaken with light rum and topped with bubbly soda for an effervescent burst of herbal freshness.",
+    "image": "mojito.png",
+    "alt": "Mojito cocktail"
+  },
+  {
+    "id": "8",
+    "title": "Mezcal Mule",
+    "description": "<b>Mezcal, ginger beer, lime, agave.</b> A smoky twist on the Moscow Mule — bold mezcal with spicy ginger beer, fresh lime, and a touch of agave, served in a copper mug for a fiery, earthy kick.",
+    "image": "mezcal-mule.png",
+    "alt": "Mezcal Mule cocktail"
+  },
+  {
+    "id": "9",
+    "title": "Piña Colada",
+    "description": "<b>White rum, coconut cream, pineapple juice.</b> A creamy Caribbean dream — silky coconut and sweet pineapple blended with premium rum, served chilled with a pineapple wedge for an instant tropical getaway.",
+    "image": "pinacolada.png",
+    "alt": "Piña Colada cocktail"
+  },
+  {
+    "id": "10",
+    "title": "Espresso Martini",
+    "description": "<b>Vodka, coffee liqueur, fresh espresso.</b> A sophisticated after-dinner classic — rich espresso mingled with smooth vodka and dark coffee liqueur, shaken until velvety and topped with three coffee beans for good luck.",
+    "image": "espresso-martini.png",
+    "alt": "Espresso Martini cocktail"
+  },
+  {
+    "id": "11",
+    "title": "Mezcal Paloma",
+    "description": "<b>Mezcal, grapefruit soda, lime, agave.</b> A smoky-sweet Mexican favorite — mezcal's earthy depth meets tangy grapefruit soda and fresh lime, balanced with agave nectar for a rustic, sunset-inspired refresher.",
+    "image": "mezcal-paloma.png",
+    "alt": "Mezcal Paloma cocktail"
+  },
+  {
+    "id": "12",
+    "title": "Elderflower Spritz",
+    "description": "<b>Prosecco, elderflower liqueur, soda, mint.</b> An effervescent garden bouquet — crisp prosecco and delicate elderflower liqueur topped with soda, garnished with fresh mint for a light, floral, and utterly elegant sip.",
+    "image": "elderflower-spritz.png",
+    "alt": "Elderflower Spritz cocktail"
+  },
+  {
+    "id": "13",
+    "title": "Passionfruit Caipiroska",
+    "description": "<b>Vodka, passionfruit, lime, sugar.</b> A luscious Brazilian-inspired cooler — fresh passionfruit pulp and lime muddled with sugar, shaken with smooth vodka for a tangy, exotic burst of tropical sunshine.",
+    "image": "passionfruit-caipiroska.png",
+    "alt": "Passionfruit Caipiroska cocktail"
+  }
+]

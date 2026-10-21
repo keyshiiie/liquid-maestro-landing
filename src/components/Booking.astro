@@ -1,0 +1,16 @@
+---
+import BookingForm from './BookingForm.astro';
+---
+<section class="booking" id="booking">
+  <div class="container">
+    <div class="booking__row">
+      <div class="booking__content">
+        <div class="booking__form-wrapper">
+          <h3 class="section__title"><b>Bookings</b> & Contact</h3>
+          <BookingForm />
+        </div>
+      </div>
+    </div>
+  </div>
+  <img src={`${import.meta.env.BASE_URL}/img/decor-b.png`} alt="" class="decor-booking" aria-hidden="true" />
+</section>

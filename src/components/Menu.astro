@@ -1,0 +1,30 @@
+---
+import MenuSlider from './MenuSlider.astro';
+import menuData from '../content/menu.json';
+
+const images = import.meta.glob<{ default: ImageMetadata }>('../cocktails/*.png', {
+  eager: true,
+});
+
+const items = menuData.map((item) => {
+  const imageKey = `../cocktails/${item.image}`;
+  const imageModule = images[imageKey];
+
+  return {
+    ...item,
+    image: imageModule?.default,
+  };
+});
+---
+<section class="menu" id="menu">
+  <div class="container">
+    <div class="menu__row">
+      <h3 class="section__title"><b>Cocktails</b> Menu</h3>
+      <div class="menu-slider-block">
+        <MenuSlider items={items} />
+      </div>
+    </div>
+  </div>
+  
+  <img src={`${import.meta.env.BASE_URL}/img/menu-decor.svg`} alt="" class="decor-menu" aria-hidden="true" />
+</section>

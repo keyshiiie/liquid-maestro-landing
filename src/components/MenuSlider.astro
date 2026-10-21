@@ -1,0 +1,75 @@
+---
+import { Image } from 'astro:assets';
+
+interface MenuItem {
+  id: string;
+  title: string;
+  description: string;
+  image: ImageMetadata;
+  alt: string;
+}
+
+interface Props {
+  items: MenuItem[];
+}
+
+const { items } = Astro.props;
+
+function splitTitle(title: string) {
+  const [first, ...rest] = title.split(' ');
+  return { first, rest: rest.join(' ') };
+}
+---
+<div class="slider-wrapper">
+  <button class="slider-btn slider-btn--prev" aria-label="Previous slide" data-prev>
+    <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </button>
+
+  <div class="slider-container">
+    <div class="slider" data-slider-track>
+      {
+        items.map((item) => {
+          const { first, rest } = splitTitle(item.title);
+          return (
+            <div class="menu-card">
+              <div class="menu-card__inner">
+                <div class="menu-card__image-wrapper">
+                  <Image
+                    src={item.image}
+                    alt={item.alt}
+                    class="menu-card__img"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="menu-card__text">
+                  <h4 class="menu-card__title"><b>{first}</b> {rest}</h4>
+                  <p class="menu-card__description" set:html={item.description} />
+                  
+                  {/* Кнопка See more. Ссылка ведет на /cocktails/{id} */}
+                  <a href={`/cocktails/${item.id}`} class="menu-card__btn --button">
+                    See More →
+                  </a>
+                </div>
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+
+  <button class="slider-btn slider-btn--next" aria-label="Next slide" data-next>
+    <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M9 18L15 12L9 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </button>
+</div>
+
+<div class="slider-dots" data-dots></div>
+
+<script>
+  import { initSlider } from '../scripts/slider.js';
+  document.querySelectorAll('.menu').forEach((el) => initSlider(el));
+</script>

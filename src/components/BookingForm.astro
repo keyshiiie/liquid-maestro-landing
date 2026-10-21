@@ -1,0 +1,111 @@
+---
+const times = [
+  '5:00 PM','5:30 PM','6:00 PM','6:30 PM','7:00 PM','7:30 PM',
+  '8:00 PM','8:30 PM','9:00 PM','9:30 PM','10:00 PM','10:30 PM',
+  '11:00 PM','11:30 PM','12:00 AM',
+];
+const peopleOptions = [
+  { value: '1', label: '1 person' },
+  { value: '2', label: '2 people' },
+  { value: '3', label: '3 people' },
+  { value: '4', label: '4 people' },
+  { value: '5', label: '5 people' },
+  { value: '6', label: '6+ people' },
+];
+---
+<form class="booking__form" id="bookingForm" novalidate>
+  <div class="booking__form-group">
+    <label for="name" class="booking__label">Name</label>
+    <input type="text" id="name" name="name" class="booking__input" placeholder="Name" required minlength="2" autocomplete="name" />
+  </div>
+
+  <div class="booking__form-group">
+    <label for="email" class="booking__label">Email</label>
+    <input type="email" id="email" name="email" class="booking__input" placeholder="Email" required autocomplete="email" />
+  </div>
+
+  <div class="booking__form-group">
+    <label for="phone" class="booking__label">Phone</label>
+    <input type="tel" id="phone" name="phone" class="booking__input" placeholder="Phone" required autocomplete="tel" />
+  </div>
+
+  <div class="booking__form-group">
+    <label for="peopleDisplay" class="booking__label">Number of people</label>
+    <div class="custom-select-wrapper">
+      <input
+        type="text"
+        id="peopleDisplay"
+        class="booking__input custom-select-input"
+        placeholder="Select number"
+        readonly
+        aria-haspopup="listbox"
+        aria-expanded="false"
+      />
+      <input type="hidden" name="people" data-select-value />
+      <div class="custom-select-dropdown" role="listbox" hidden>
+        {peopleOptions.map((opt) => (
+          <div class="select-option" role="option" tabindex="0" data-value={opt.value}>
+            {opt.label}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="booking__form-group">
+    <label for="dateDisplay" class="booking__label">Date & Time</label>
+    <div class="booking__datetime">
+      <div class="custom-date-wrapper">
+        <input
+          type="text"
+          id="dateDisplay"
+          class="booking__input booking__input--half"
+          placeholder="Select date"
+          readonly
+        />
+        <input type="hidden" name="date" data-date-value />
+        <div class="custom-date-picker" hidden>
+          <div class="picker-header">
+            <button type="button" class="picker-nav" data-action="prev-month" aria-label="Previous month">‹</button>
+            <span class="picker-month-year"></span>
+            <button type="button" class="picker-nav" data-action="next-month" aria-label="Next month">›</button>
+          </div>
+          <div class="picker-weekdays">
+            <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+          </div>
+          <div class="picker-days"></div>
+        </div>
+      </div>
+
+      <div class="custom-time-wrapper">
+        <input
+          type="text"
+          id="timeDisplay"
+          class="booking__input booking__input--half"
+          placeholder="Select time"
+          readonly
+        />
+        <input type="hidden" name="time" data-time-value />
+        <div class="custom-time-picker" hidden>
+          <div class="time-picker-list">
+            {times.map((t) => <div class="time-option" role="option" tabindex="0">{t}</div>)}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="booking__submit --button">Submit</button>
+
+  <p class="booking__message" role="status" aria-live="polite" data-form-message></p>
+</form>
+
+<script>
+  import { initCustomSelect } from '../scripts/customSelect.js';
+  import { initPickers } from '../scripts/customPickers.js';
+  import { initBookingForm } from '../scripts/bookingForm.js';
+
+  initCustomSelect();
+  initPickers();
+  initBookingForm();
+</script>

@@ -1,0 +1,84 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = 'Liquid Maestro — Premium Cocktail Bar in Los Angeles',
+  description = 'Step into a world of extraordinary flavors at Liquid Maestro. Premium cocktails, expert mixologists, and an elegant ambiance in downtown Los Angeles.',
+} = Astro.props;
+
+const siteUrl = 'https://liquidmaestro.com';
+const ogImage = `${siteUrl}/og-image.png`;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BarOrPub',
+  name: 'Liquid Maestro',
+  description: 'Premium cocktail bar and mixology lounge in downtown Los Angeles.',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Los Angeles',
+    addressRegion: 'CA',
+    addressCountry: 'US',
+  },
+  telephone: '(555) 123-4567',
+  email: 'info@liquidmaestro.com',
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+      opens: '17:00',
+      closes: '00:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Friday', 'Saturday'],
+      opens: '17:00',
+      closes: '02:00',
+    },
+  ],
+  menu: `${siteUrl}/#menu`,
+  image: ogImage,
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href={`${import.meta.env.BASE_URL}/favicon.ico`} />
+
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Liquid Maestro" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={siteUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="canonical" href={siteUrl} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

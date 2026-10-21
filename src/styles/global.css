@@ -1,0 +1,83 @@
+:root {
+  --bg: #181818;
+  --bg-elevated: #1a1a1a;
+  --bg-elevated-2: #2a2a2a;
+  --accent: #d16868;
+  --text: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --text-faint: rgba(255, 255, 255, 0.15);
+  --dash-color: #FFFFFF;
+  --dash-size: 4px;
+  --dash-gap: 4px;
+  --dash-soft: rgba(255, 255, 255, 0.08);
+
+  --font-serif: 'Noto Serif Display', serif;
+  --font-sans: 'Montserrat', sans-serif;
+
+  --container: 1280px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-serif);
+  font-optical-sizing: auto;
+  font-size: 16px;
+  font-variation-settings: 'wdth' 100;
+  color: var(--text);
+  background-color: var(--bg);
+}
+
+main {
+  flex: 1;
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  width: 100%;
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+img:not(a img) {
+  pointer-events: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+.--button {
+  display: inline-block;
+  border: 1px solid var(--text);
+  padding: 11px 48px;
+  font-weight: 900;
+  background: transparent;
+  color: var(--text);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.--button:hover {
+  background: var(--text);
+  color: #000;
+}

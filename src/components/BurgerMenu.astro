@@ -1,0 +1,31 @@
+---
+---
+<button class="burger-menu" aria-label="Toggle menu" aria-expanded="false" aria-controls="burgerOverlay">
+  <img src={`${import.meta.env.BASE_URL}/img/Hamburger-menu.png`} alt="" class="burger-icon" width="28" height="28" />
+  <svg class="burger-close-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M18 6L6 18M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round" />
+  </svg>
+</button>
+
+<div class="burger-overlay" id="burgerOverlay" aria-hidden="true">
+  <div class="burger-menu-panel">
+    <nav class="burger-nav">
+      <ul class="burger-nav__list">
+        <li class="burger-nav__item"><a href="#about" class="burger-nav__link">About us</a></li>
+        <li class="burger-nav__item"><a href="#schedule" class="burger-nav__link">Opening Hours</a></li>
+        <li class="burger-nav__item"><a href="#menu" class="burger-nav__link">Cocktails Menu</a></li>
+        <li class="burger-nav__item"><a href="#booking" class="burger-nav__link">Bookings & Contact</a></li>
+      </ul>
+    </nav>
+    <div class="burger-footer">
+      <p class="burger-hours">Mon - Thu: 5 PM - 12 AM</p>
+      <p class="burger-hours">Fri - Sat: 5 PM - 2 AM</p>
+      <p class="burger-hours burger-hours--closed">Sun: Closed</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { initBurgerMenu } from '../scripts/burgerMenu.js';
+  initBurgerMenu();
+</script>

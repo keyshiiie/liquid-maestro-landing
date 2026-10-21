@@ -64,6 +64,7 @@
   font-size: clamp(16px, 1.5vw, 20px);
   line-height: 1.4;
   opacity: 0.8;
+  max-width: 420px;
 }
 .hero__button {
   margin-top: clamp(40px, 5vw, 80px);
@@ -361,7 +362,7 @@
 
 /* ============ Booking ============ */
 .booking {
-  margin-top: clamp(0px, 15vw, 250px);
+  margin-top: clamp(0px, 15vw, 80px);
   background: var(--bg);
   padding: clamp(60px, 10vw, 150px) 0;
   position: relative;
@@ -749,9 +750,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  transform: none !important; 
 }
 .burger-overlay.active .burger-menu-panel {
-  right: 0;
+  right: 0 !important;
+  transform: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 .burger-nav {
   flex: 1;
@@ -807,6 +812,105 @@
 }
 .burger-hours--closed {
   color: var(--accent);
+}
+/* ============ Cocktail Page ============ */
+.cocktail-page {
+  min-height: 100vh;
+  padding: clamp(20px, 10vw, 40px) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.cocktail__back-link {
+  display: inline-block;
+  margin-bottom: clamp(30px, 5vw, 50px);
+  color: var(--accent);
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: opacity 0.3s ease;
+}
+
+.cocktail__back-link:hover {
+  opacity: 0.7;
+}
+
+.cocktail__row {
+  display: flex;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center; 
+  flex-wrap: wrap;
+}
+
+/* Обертка для картинки */
+.cocktail__image-wrapper {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+}
+
+/* Сама картинка */
+.cocktail__image {
+  max-width: 100%;
+  max-height: 500px;
+  width: auto;      
+  height: auto;     
+  object-fit: contain; 
+}
+
+.cocktail__content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.cocktail__title {
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.cocktail__description {
+  font-family: var(--font-sans);
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 40px;
+}
+
+.cocktail__ingredients {
+  margin-bottom: 50px;
+}
+
+.cocktail__ingredients .section__title {
+  margin-bottom: 20px;
+}
+
+.cocktail__btn {
+  margin-top: 0;
+  align-self: flex-start;
+  display: inline-block;
+}
+
+/* Адаптив для страницы коктейля */
+@media (max-width: 768px) {
+  .cocktail-page {
+    padding: 100px 0 60px;
+  }
+  
+  .cocktail__image-wrapper {
+    padding: 10px;
+    width: 100%; /* На мобильных блок занимает всю ширину */
+  }
+  
+  .cocktail__btn {
+    align-self: center;
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /* ============ Responsive ============ */

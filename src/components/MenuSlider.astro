@@ -47,8 +47,8 @@ function splitTitle(title: string) {
                   <h4 class="menu-card__title"><b>{first}</b> {rest}</h4>
                   <p class="menu-card__description" set:html={item.description} />
                   
-                  {/* Кнопка See more. Ссылка ведет на /cocktails/{id} */}
-                  <a href={`/cocktails/${item.id}`} class="menu-card__btn --button">
+                  {/* Исправленная ссылка с BASE_URL */}
+                  <a href={`${import.meta.env.BASE_URL}/cocktails/${item.id}`} class="menu-card__btn --button">
                     See More →
                   </a>
                 </div>

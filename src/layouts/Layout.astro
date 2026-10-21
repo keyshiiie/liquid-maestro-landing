@@ -1,4 +1,8 @@
 ---
+import '../styles/reset.css';
+import '../styles/global.css';
+import '../styles/components.css';
+
 interface Props {
   title?: string;
   description?: string;
@@ -78,6 +82,24 @@ const jsonLd = {
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
+  <script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Проверяем, был ли переход по якорю с другой страницы
+    const shouldScroll = sessionStorage.getItem('scrollToHash');
+    
+    if (shouldScroll && window.location.hash) {
+      const target = document.querySelector(window.location.hash);
+      if (target) {
+        // Небольшая задержка для рендера и GSAP
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Очищаем метку, чтобы при обновлении страницы скролл не повторялся
+          sessionStorage.removeItem('scrollToHash');
+        }, 300);
+      }
+    }
+  });
+</script>
   <body>
     <slot />
   </body>

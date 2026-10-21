@@ -10,10 +10,6 @@ import Schedule from '../components/Schedule.astro';
 import Menu from '../components/Menu.astro';
 import Booking from '../components/Booking.astro';
 import Footer from '../components/Footer.astro';
-
-import '../styles/reset.css';
-import '../styles/global.css';
-import '../styles/components.css';
 ---
 <Layout>
   <main class="main">
@@ -30,8 +26,6 @@ import '../styles/components.css';
 
 <script>
   import { initAnimations } from '../scripts/animations.js';
-  
-  // Запускаем анимации после полной загрузки DOM и шрифтов
   document.addEventListener('DOMContentLoaded', () => {
     initAnimations();
   });

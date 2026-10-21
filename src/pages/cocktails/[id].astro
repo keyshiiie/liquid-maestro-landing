@@ -1,0 +1,88 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import menuData from '../../content/menu.json';
+import { Image } from 'astro:assets';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  return menuData.map((drink) => ({
+    params: { id: drink.id },
+  }));
+}
+
+const { id } = Astro.params;
+const drink = menuData.find((item) => item.id === id);
+
+if (!drink) {
+  return Astro.redirect('/404');
+}
+
+const images = import.meta.glob<{ default: ImageMetadata }>('../../cocktails/*.png', {
+  eager: true,
+});
+const image = images[`../../cocktails/${drink.image}`]?.default;
+---
+<Layout title={`${drink.title} — Liquid Maestro`}>
+  <main class="cocktail-page">
+    <div class="container">
+      
+      <!-- Кнопка назад -->
+      <a href={`${import.meta.env.BASE_URL}/#menu`} class="cocktail__back-link">
+        &larr; Back to Menu
+      </a>
+
+      <div class="cocktail__row">
+        
+        <!-- Левая часть: Картинка -->
+        <div class="cocktail__image-wrapper">
+          {image ? (
+            <Image 
+              src={image} 
+              alt={drink.alt}
+              class="cocktail__image" 
+            />
+          ) : (
+            <p>Image not found</p>
+          )}
+        </div>
+
+        <!-- Правая часть: Текст и Ингредиенты -->
+        <div class="cocktail__content">
+          
+          <h1 class="cocktail__title">
+            {drink.title}
+          </h1>
+          
+          <p class="cocktail__description">
+            <span set:html={drink.description} />
+          </p>
+          
+          <!-- Блок ингредиентов (в стиле расписания) -->
+          <div class="cocktail__ingredients">
+            <h3 class="section__title"><b>Ingredients</b></h3>
+            
+            <div class="hours">
+              {drink.ingredients?.map((ing) => (
+                <div class="hours__item">
+                  <span class="hours__day">{ing.name}</span>
+                  <span class="hours__time">{ing.amount}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Кнопка бронирования -->
+          <a 
+            href={`${import.meta.env.BASE_URL}/#booking`} 
+            class="hero__button --button cocktail__btn"
+            onclick="sessionStorage.setItem('scrollToHash', 'true');"
+          >
+            Book a Table
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
